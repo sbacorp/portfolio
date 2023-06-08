@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@mixin flex-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+@mixin button {
+	padding: 10px 14px;
+	gap: 10px;
+	border-radius: 0.5em;
+}
+.button-primary {
+	@include flex-row;
+	@include button;
+	background: #fea55f;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 0.5em;
+	&:hover {
+		background: #ffac6b;
+		box-shadow: none;
+	}
+}
+
+.button-default {
+	@include flex-row;
+	@include button;
+	background: #1c2b3a;
+	&:hover {
+		background: #263b50;
+	}
+}
+.button-ghost {
+	@include flex-row;
+	@include button;
+	background: transparent;
+	border: 1px solid #ffffff;
+	color: #fff;
+	&:hover {
+		border: 1px solid rgba(255, 255, 255, 0.7);
+	}
+}
+
+.nav {
+	width: 100%;
+	& li:last-child {
+		margin: 0 0 0 auto;
+	}
+	& li:nth-child(4) {
+		border-right: 1px solid rgb(30 45 61);
+	}
+}
+
+.game-container {
+	background: linear-gradient(
+		150.26deg,
+		rgba(23, 85, 83, 0.7) 1.7%,
+		rgba(67, 217, 173, 0.091) 81.82%
+	);
+	border: 1px solid;
+	box-shadow: inset 0px 2px 0px rgba(255, 255, 255, 0.3);
+	backdrop-filter: blur(32px);
+
+	border-radius: 8px;
+}
+.game-over {
+	background: rgba(1, 22, 39, 0.84);
+	box-shadow: inset 1px 5px 11px rgba(2, 18, 27, 0.71);
+	border-radius: 8px;
+}
+.game {
+	box-shadow: inset 1px 5px 11px rgba(2, 18, 27, 0.71);
+}
+.bg-blur__green {
+	filter: blur(87px);
+	transform: rotate(-94.3deg);
+}
+.bg-blur__blue {
+	filter: blur(87px);
+	transform: rotate(13.51deg);
+}
