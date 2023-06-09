@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 
 const fira = Fira_Code({ subsets: ["latin"] });
 
-
 export default function RootLayout({
 	children,
 }: {
@@ -14,11 +13,13 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${fira.className} flex items-center justify-center  overflow-hidden w-screen h-screen bg-primary1`}
+				className={`${fira.className} text-grey flex items-center justify-center  overflow-x-hidden overflow-y-auto w-screen h-screen bg-primary1`}
 			>
-				<div className=" bg-primary2 h-[95%] w-[97%] rounded-md border border-solid border-line flex flex-col items-center justify-center  overflow-hidden">
+				<div className="relative bg-primary2 h-[95%] w-[97%] rounded-md border border-solid border-line flex flex-col items-center justify-center  overflow-hidden pt-12">
 					<Header />
-					<main className="flex-grow flex items-center flex-col justify-center">{children}</main>
+					<main className="w-full h-full flex-grow flex items-center flex-col justify-center">
+						{children}
+					</main>
 					<Footer />
 				</div>
 			</body>
