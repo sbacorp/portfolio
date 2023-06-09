@@ -26,7 +26,14 @@ function layout({ children }: { children: React.ReactNode }) {
 						]}
 					/>
 				</aside>
-				{children}
+				<div className="flex flex-col flex-grow">
+					<header className="hidden lg:block w-full h-10 border-b border-solid border-line">
+						<span className="hidden lg:flex items-center justify-center px-3 text- w-fit h-full border-r border-solid border-line shrink-0">
+							Контакты
+						</span>
+					</header>
+					{children}
+				</div>
 			</div>
 		</div>
 	);

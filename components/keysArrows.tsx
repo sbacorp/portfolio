@@ -11,7 +11,7 @@ function KeysArrows() {
 				{Array(3)
 					.fill("")
 					.map((_, i) => (
-						<div className="flex items-center justify-center border border-solid border-line rounded-lg  bg-primary1 ">
+						<div key={i} className="flex items-center justify-center border border-solid border-line rounded-lg  bg-primary1 ">
 							<MdArrowLeft className={`h-7 w-12 -rotate-${90 * i}`} />
 						</div>
 					))}
