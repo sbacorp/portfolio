@@ -10,15 +10,28 @@ enum Direction {
 	Left = "left",
 	Right = "right",
 }
-const SnakeGame = () => {
-	const [snake, setSnake] = useState<IPosition[]>([]);
+const initialSnake = [
+
+	{ x: 7, y: 15 },
+	{ x: 7, y: 16 },
+	{ x: 7, y: 17 },
+	{ x: 7, y: 18 },
+];
+const SnakeGame = ({
+	remainedFood,
+	setRemainedFood,
+}: {
+	remainedFood: string[];
+	setRemainedFood: (remainedFood: string[]) => void;
+}) => {
+	const [snake, setSnake] = useState<IPosition[]>(initialSnake);
 	const [food, setFood] = useState<IPosition>({ x: 0, y: 0 });
 	const [direction, setDirection] = useState<Direction>(Direction.Up);
 	const [gameOver, setGameOver] = useState(false);
 	const [gameStarted, setGameStarted] = useState(false);
-
-	const gameWidth = 25;
-	const gameHeight = 45;
+	const [gameOverText, setGameOverText] = useState<string>("ПОРАЖЕНИЕ!");
+	const gameWidth = 15;
+	const gameHeight = 30;
 
 	// Инициализация змейки и пищи при загрузке компонента
 	useEffect(() => {
@@ -27,15 +40,6 @@ const SnakeGame = () => {
 
 	// Инициализация игры
 	const initializeGame = () => {
-		const initialSnake = [
-			{ x: 7, y: 7 },
-			{ x: 7, y: 8 },
-			{ x: 7, y: 9 },
-			{ x: 7, y: 10 },
-			{ x: 7, y: 11 },
-			{ x: 7, y: 12 },
-			{ x: 7, y: 13 },
-		];
 		setSnake(initialSnake);
 		generateFood();
 		setDirection(Direction.Up);
@@ -89,7 +93,6 @@ const SnakeGame = () => {
 
 	const moveSnake = () => {
 		const head = { ...snake[0] };
-
 		switch (direction) {
 			case Direction.Up:
 				head.y = (head.y - 1 + gameHeight) % gameHeight;
@@ -109,6 +112,7 @@ const SnakeGame = () => {
 
 		const newSnake = [head, ...snake];
 		if (head.x === food.x && head.y === food.y) {
+			setRemainedFood(remainedFood.splice(0, remainedFood.length - 1));
 			generateFood();
 		} else {
 			newSnake.pop();
@@ -117,7 +121,12 @@ const SnakeGame = () => {
 		setSnake(newSnake);
 		checkCollision(head);
 	};
-
+	useEffect(() => {
+		if (remainedFood.length === 0) {
+			setGameOver(true)
+			setGameOverText("ПОБЕДА!");
+		}
+	}, [remainedFood]);
 	// Проверка на столкновение с границами или самой собой
 	const checkCollision = (head: { x: number; y: number }) => {
 		const collidedWithBorder =
@@ -128,21 +137,26 @@ const SnakeGame = () => {
 
 		if (collidedWithBorder || collidedWithSelf) {
 			setGameOver(true);
+			setGameOverText("ПОРАЖЕНИЕ!");
 		}
 	};
 
 	// Обработка клика по кнопке перезагрузки
 	const handleRestartClick = () => {
 		initializeGame();
+		setRemainedFood(new Array(10).fill(""));
+		setGameStarted(true);
+		
 	};
 
 	// Обработка клика по кнопке старта
 	const handleStartClick = () => {
 		setGameStarted(true);
+		setRemainedFood(new Array(10).fill(""));
 	};
 
 	return (
-		<div className="relative w-fit">
+		<div className="relative w-fit h-fit">
 			<div className="game grid grid-cols-30 gap-0 p-2 bg-primary2 border border-solid border-line h-fit w-fit rounded-lg z-20">
 				{Array(gameHeight)
 					.fill("")
@@ -160,11 +174,11 @@ const SnakeGame = () => {
 									return (
 										<div
 											key={colIndex}
-											className={`h-2 w-2 ${
+											className={`h-3 w-3 ${
 												isSnake
 													? "bg-accent2"
 													: isFood
-													? " rounded-full bg-gradient-radial from-gradient2 via-gradient2/80 to-transparent shadow-xl"
+													? "rounded-full bg-gradient-radial from-gradient2 via-gradient2/80 to-transparent shadow-xl"
 													: "bg-primary2"
 											}`}
 										/>
@@ -175,7 +189,9 @@ const SnakeGame = () => {
 			</div>
 			{gameOver && (
 				<div>
-					<div className="game-over absolute bottom-20 left-[5px] w-52 text-center py-3 text-accent2">GAME OVER!</div>
+					<div className="game-over absolute bottom-20 left-[5px] w-48 text-center py-3 text-accent2">
+						{gameOverText}
+					</div>
 					<button
 						className="absolute bottom-5 left-[20%] button-default text-code"
 						onClick={handleRestartClick}

@@ -1,23 +1,23 @@
-import { ReactNode } from "react";
+"use client";
 
-function GameContainer({ children }: { children: ReactNode }) {
+import { useState } from "react";
+import KeysArrows from "./keysArrows";
+import Game from "./game";
+function GameContainer() {
+	const [remainedFood, setRemainedFood] = useState<Array<string>>(new Array(10).fill(' '));
 	return (
-		<div className=" game-container hidden md:flex gap-6 py-8 px-7 border-line">
-			<div className="left">{children}</div>
+		<div className=" game-container hidden lg:flex gap-6 py-8 px-7 border-line">
+			<Game remainedFood={remainedFood} setRemainedFood={setRemainedFood} />
 			<div className="right flex flex-col">
-				<div className="info-key flex flex-col items-center gap-2 text-white text-code">
-					// Используй стрелки <br /> // чтобы чтобы
-					<div className="arrow border border-solid border-line rounded-lg h-6 w-14 bg-primary1"></div>
-					<div className="arrows flex gap-2">
-						{Array(3)
-							.fill("")
-							.map((_, i) => (
-								<div className="arrow border border-solid border-line rounded-lg h-6 w-14 bg-primary1"></div>
-							))}
-					</div>
-					<div className="food text-code">
-						// Осталось съесть <br />
-						<div className="food__items"></div>
+				<div className="info-key flex flex-col items-center gap-2 text-white text-code text-left">
+					<KeysArrows />// осталось съесть :
+					<div className="grid grid-cols-5 gap-5">
+						{remainedFood.map((_, i) => (
+							<div
+								key={i}
+								className="food h-3 w-3 rounded-full bg-gradient-radial from-gradient2 via-gradient2/80 to-transparent shadow-xl"
+							/>
+						))}
 					</div>
 				</div>
 			</div>

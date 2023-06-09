@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
+    "./node_modules/flowbite-react/**/*.js",
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
@@ -45,8 +46,14 @@ module.exports = {
       },
       borderColor: {
         "line": "#1E2D3D",
+        "accent1": '#FEA55F',
+      },
+      rotate: {
+        '270': '270deg'
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require("flowbite/plugin")
+  ],
 }

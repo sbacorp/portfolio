@@ -1,7 +1,9 @@
-import React from 'react'
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+	title: "О Shankin Studio",
+	description: "Немного обо ",
+};
 export default function About() {
-  return (
-	<div>about</div>
-  )
+	return <div>about</div>;
 }

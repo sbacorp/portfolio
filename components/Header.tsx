@@ -1,7 +1,8 @@
 "use client";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-
+import { useEffect, useState } from "react";
+import { HiMenu, HiOutlineX } from "react-icons/hi";
 export const links = [
 	{ href: "/", text: "_привет" },
 	{ href: "/about", text: "_обо-мне" },
@@ -9,26 +10,51 @@ export const links = [
 	{ href: "/contact", text: "_напиши-мне" },
 ];
 function Header() {
+	const [active, setActive] = useState(false);
+	useEffect(() => {
+		console.log(active);
+	}, [active]);
+
 	const pathname = usePathname();
 	return (
-		<div className=" h-12 w-full border-b border-solid border-line text-grey flex flex-col lg:flex-row justify-start pl-6">
-			<ul className="nav flex flex-col lg:flex-row justify-start items-center w-full">
-				<li className="flex items-center lg:w-56 h-full">Богдан Шанькин</li>
-				{links.map((link, i) => {
-					const isActive = pathname === link.href;
-					return (
-						<li
-							key={i}
-							className={`flex items-center px-4 border-solid border-l border-line h-full ${
-								isActive ? "text-white" : "text-b"
-							}`}
-						>
-							<Link href={link.href}>{link.text}</Link>
-						</li>
-					);
-				})}
-			</ul>
-		</div>
+		<>
+			<div className=" z-50 h-56 lg:h-12 w-full lg:border-b border-solid border-line text-grey">
+				<ul
+					className={`nav lg:flex lg:flex-row justify-start items-center h-full w-full ${
+						active ? "flex flex-col" : "hidden"
+					}`}
+				>
+					<li className="flex items-center w-full lg:w-56 pl-6 h-14 lg:border-b-0 border-b border-solid border-line ">
+						Богдан Шанькин
+					</li>
+					{links.map((link, i) => {
+						const isActive = pathname === link.href;
+						return (
+							<li
+								key={i}
+								className={`flex items-center px-4 border-solid  lg:border-l border-l-line lg:border-b border-b lg:h-full h-14 w-full lg:w-fit ${
+									isActive
+										? " border-b-4 border-solid border-accent1"	
+										: " border-b-line"
+								}`}
+							>
+								<Link href={link.href}>{link.text}</Link>
+							</li>
+						);
+					})}
+				</ul>
+			</div>
+			<div
+				className="flex lg:hidden absolute top-6 right-6 z-50"
+				onClick={() => setActive(!active)}
+			>
+				{active ? (
+					<HiOutlineX className="w-8 h-8 text-grey" />
+				) : (
+					<HiMenu className="w-8 h-8 text-grey" />
+				)}
+			</div>
+		</>
 	);
 }
 
