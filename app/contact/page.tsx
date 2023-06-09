@@ -1,13 +1,10 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { Metadata } from "next";
+
 import CodeHighlighter from "@/components/CodeHighlighter";
 import { IInputs, formFields } from "./constants";
-export const metadata: Metadata = {
-	title: "Напиши Мне",
-	description: "Оставь заявку в Shankin Studio",
-};
+
 
 export default function Contact() {
 	const {

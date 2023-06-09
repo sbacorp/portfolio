@@ -1,3 +1,9 @@
+import { Metadata } from "next";
+export const metadata: Metadata = {
+	title: "Напиши Мне",
+	description: "Оставь заявку в Shankin Studio",
+};
+
 import Dropdown from "@/components/dropdown";
 import React from "react";
 import { BiMailSend, BiPhoneCall } from "react-icons/bi";
