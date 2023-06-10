@@ -50,16 +50,14 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-	const slug = params.slug;
-
-	// fetch data
 	const info = skills.find((exp) => exp.slug === params.slug);
 
 	return {
 		title: info?.title || "Мои навыки",
 	};
 }
-function SkillsInfo({ params }: { params: { slug: string } }) {
+
+function Page({ params }: { params: { slug: string } }) {
 	const data: Experience | undefined = skills.find(
 		(exp) => exp.slug === params.slug
 	);
@@ -77,4 +75,4 @@ function SkillsInfo({ params }: { params: { slug: string } }) {
 		</div>
 	);
 }
-export default SkillsInfo;
+export default Page;
