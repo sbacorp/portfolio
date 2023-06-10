@@ -59,12 +59,12 @@ button.addEventListener('click', () => {
 	form.send(message);
 })`;
 	return (
-		<main className="flex flex-grow items-center justify-center">
-			<div className="form px-5 md:w-2/5 w-full h-full flex items-center justify-center flex-col">
+		<main className="flex my-auto justify-evenly">
+			<div className="form px-5 w-fit h-full flex  justify-center flex-col">
 				{!isSubmitted ? (
 					<>
 						<form
-							className="flex flex-col text-grey gap-2 h-fit w-72 md:w-96"
+							className="flex flex-col text-grey gap-2 h-fit w-72 lg::w-96"
 							onSubmit={handleSubmit(onSubmitForm)}
 						>
 							{formFields.map((field) => (
@@ -110,7 +110,7 @@ button.addEventListener('click', () => {
 					</>
 				)}
 			</div>
-			<div className="code_gen grow-0 shrink w-3/5  hidden lg:flex h-full items-center justify-center border-l border-solid border-line">
+			<div className="hidden md:block self-center  h-fit">
 				<CodeHighlighter code={code} />
 			</div>
 		</main>

@@ -2,12 +2,10 @@ import { Metadata } from "next";
 import GameContainer from "@/components/gameContainer";
 import Typing from "@/components/Typing";
 export const metadata: Metadata = {
-	title: "Shankin Studio",
-	description: "Приветствую вас на Shankin Studio",
+	title: "Shankin Dev",
+	description: "Приветствую вас на Shankin Dev",
 };
 export default function Home() {
-	const code = `const githubLink = “https://github.com/sbacorp”`;
-
 	return (
 		<div className="flex gap-20 xl:gap-32 px-3 xl:px-0">
 			<div
@@ -20,11 +18,14 @@ export default function Home() {
 			/>
 
 			<div className="welcome flex flex-col text-white">
-				<Typing toRotate={["Богдан", "Шанькин", "Frontend", "разработчик"]} />
+				<Typing toRotate={["Богдан", "Шанькин"]} />
+				<p className="text-subhead">
+					{">"} Frontend разработчик
+				</p>
 				<p className="text-body z-30 mt-20 hidden xl:block">
 					// Здесь ты можешь поймать настольгию {"->"}
 				</p>
-				<p className="text-body z-30 hidden xl:block">
+				<p className="text-body z-30 mt-5 hidden xl:block">
 					// Так же можешь ознакомиться с моей Github страницей
 				</p>
 				<p className="text-body z-30 block xl:hidden">

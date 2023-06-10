@@ -13,11 +13,11 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${fira.className} text-grey flex items-center justify-center  overflow-x-hidden overflow-y-auto w-screen h-screen bg-primary1`}
+				className={`${fira.className} text-grey overflow-x-hidden w-screen h-screen bg-primary1 px-1 py-2`}
 			>
-				<div className="relative bg-primary2 h-[95%] w-[97%] rounded-md border border-solid border-line flex flex-col items-center justify-center  overflow-hidden pt-12">
+				<div className="mx-auto relative bg-primary2 h-full rounded-md border border-line flex flex-col pt-12 overflow-y-auto">
 					<Header />
-					<main className="w-full h-full flex-grow flex items-center flex-col justify-center">
+					<main className="w-full flex-grow flex items-center flex-col justify-center">
 						{children}
 					</main>
 					<Footer />

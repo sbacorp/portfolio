@@ -2,9 +2,9 @@ import { SiGithub, SiTelegram } from "react-icons/si";
 export const links = [{ href: "https://t.me/frontsDev" }];
 function Footer() {
 	return (
-		<div className=" h-10 w-full border-t border-solid border-line text-grey flex flex-row justify-start pl-6">
+		<div className=" h-10 min-h-[40px] w-full border-t border-solid border-line text-grey flex flex-row justify-start pl-6">
 			<ul className="footer flex flex-row justify-start items-center w-full">
-				<li className="flex items-center w-fit h-full text-code lg:text-lables pr-2">
+				<li className="flex items-center h-full text-code lg:text-lables pr-2 w-fit">
 					Найди меня тут:
 				</li>
 				<li
