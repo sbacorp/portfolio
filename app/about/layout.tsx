@@ -42,21 +42,21 @@ function layout({ children }: { children: React.ReactNode }) {
 							<Link
 								onClick={() => setActiveTab("frontend")}
 								className="w-full block"
-								href={"/about/skillsInfo/frontend"}
+								href={"/about/frontend"}
 							>
 								frontend
 							</Link>,
 							<Link
 								onClick={() => setActiveTab("бд")}
 								className="w-full block"
-								href={"/about/skillsInfo/database"}
+								href={"/about/database"}
 							>
 								бд
 							</Link>,
 							<Link
 								onClick={() => setActiveTab("алгоритмы")}
 								className="w-full block"
-								href={"/about/skillsInfo/algorithms"}
+								href={"/about/algorithms"}
 							>
 								алгоритмы
 							</Link>,
