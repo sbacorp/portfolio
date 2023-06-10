@@ -12,12 +12,7 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-	const data = await fetch(
-		`https://6484df85ee799e32162719fc.mockapi.io/info?slug=${params.slug}`
-	).then((res) => res.json());
-
-	console.log(data);
-
+	const data = await getInfo(params.slug);
 	return {
 		title: data[0].title,
 	};
@@ -26,8 +21,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function SkillsInfo({ params: { slug } }: Props) {
 	const skillsData: Experience[] = await getInfo(slug);
 	let data = skillsData[0];
-
-	console.log(data);
 	return (
 		<div className="h-full flex pt-5 flex-col items-center justify-center lg:justify-between  lg:flex-row  px-6">
 			<div className="w-full lg:w-2/5 text">{data.description}</div>
