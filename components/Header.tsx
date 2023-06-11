@@ -28,8 +28,7 @@ function Header() {
 	return (
 		<>
 			<div className="absolute bg-primary2 top-0 left-0 z-50 lg:h-12 w-full lg:border-b border-solid border-line text-grey">
-				<motion.ul
-					{...FADE_IN_ANIMATION_SETTINGS}
+				<ul
 					className={`nav h-56 lg:flex lg:flex-row justify-start items-center lg:h-full w-full ${
 						active ? "flex flex-col" : "hidden"
 					}`}
@@ -53,7 +52,7 @@ function Header() {
 							</li>
 						);
 					})}
-				</motion.ul>
+				</ul>
 			</div>
 			<motion.div
 				className="flex lg:hidden absolute top-0 right-1 z-50"

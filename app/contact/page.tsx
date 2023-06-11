@@ -60,7 +60,7 @@ button.addEventListener('click', () => {
 })`;
 	return (
 		<main className="flex my-auto justify-evenly">
-			<div className="form px-5 w-fit h-full flex  justify-center flex-col">
+			<div className="form px-5 w-fit h-full flex items-center justify-center flex-col">
 				{!isSubmitted ? (
 					<>
 						<form
@@ -99,8 +99,8 @@ button.addEventListener('click', () => {
 					</>
 				) : (
 					<>
-						<p className=" text-subhead text-white">Спасибо! 🤘</p>
-						<p className="text-body text-center">{submitMessage}</p>
+						<p className=" text-subhead text-white text-center">Спасибо! 🤘</p>
+						<p className="text-body text-center max-w-xs">{submitMessage}</p>
 						<button
 							className="button-default"
 							onClick={() => setIsSubmitted(false)}

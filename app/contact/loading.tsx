@@ -1,22 +1,47 @@
-import ContentLoader from "react-content-loader";
-
 export default function Loading() {
+	// You can add any UI inside Loading, including a Skeleton.
 	return (
-		<div className="flex items-center justify-center w-full h-full">
-			<ContentLoader
-				speed={2}
-				width={370}
-				height={390}
-				viewBox="0 0 370 390"
-				backgroundColor="#9e9e9e"
-				foregroundColor="#707070"
-			>
-				<rect x="65" y="82" rx="0" ry="0" width="0" height="1" />
-				<rect x="9" y="62" rx="8" ry="8" width="299" height="43" />
-				<rect x="7" y="119" rx="8" ry="8" width="299" height="43" />
-				<rect x="10" y="176" rx="8" ry="8" width="299" height="128" />
-				<rect x="8" y="324" rx="8" ry="8" width="299" height="43" />
-			</ContentLoader>
-		</div>
+		<svg
+			className="pl  absolute top-1/2 left-[45%]"
+			viewBox="0 0 200 200"
+			width="200"
+			height="200"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<defs>
+				<linearGradient id="pl-grad1" x1="1" y1="0.5" x2="0" y2="0.5">
+					<stop offset="0%" stop-color="hsl(313,90%,55%)" />
+					<stop offset="100%" stop-color="hsl(223,90%,55%)" />
+				</linearGradient>
+				<linearGradient id="pl-grad2" x1="0" y1="0" x2="0" y2="1">
+					<stop offset="0%" stop-color="hsl(313,90%,55%)" />
+					<stop offset="100%" stop-color="hsl(223,90%,55%)" />
+				</linearGradient>
+			</defs>
+			<circle
+				className="pl__ring"
+				cx="100"
+				cy="100"
+				r="82"
+				fill="none"
+				stroke="url(#pl-grad1)"
+				stroke-width="36"
+				stroke-dasharray="0 257 1 257"
+				stroke-dashoffset="0.01"
+				stroke-linecap="round"
+				transform="rotate(-90,100,100)"
+			/>
+			<line
+				className="pl__ball"
+				stroke="url(#pl-grad2)"
+				x1="100"
+				y1="18"
+				x2="100.01"
+				y2="182"
+				stroke-width="36"
+				stroke-dasharray="1 165"
+				stroke-linecap="round"
+			/>
+		</svg>
 	);
 }

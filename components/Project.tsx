@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React, { ReactNode } from "react";
 
 export interface IProject {
@@ -11,7 +10,7 @@ export interface IProject {
 
 function Project({ i, title, desc, image, demoUrl }: IProject) {
 	return (
-		<div className="flex flex-col justify-start w-4/5 lg:w-[250px]">
+		<div className="flex flex-col justify-start w-4/5 sm:w-[300px]">
 			<p className="text-lables text-secondary3 ">
 				Project {i} <p className="text-code text-line">//_{title}</p>
 			</p>
