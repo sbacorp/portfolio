@@ -1,22 +1,5 @@
-import { Generated, ColumnType } from "kysely";
+import { Database, Experience } from "@/types";
 import { createKysely } from "@vercel/postgres-kysely";
-
-// define types
-type Database = {
-	info: InfoTable;
-};
-
-type InfoTable = {
-	id: Generated<number>;
-	slug: string;
-	title: string;
-	description: string;
-};
-type Experience = {
-	slug: string;
-	title: string;
-	description: string;
-};
 
 const db = createKysely<Database>();
 

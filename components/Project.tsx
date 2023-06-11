@@ -1,12 +1,5 @@
-import React, { ReactNode } from "react";
+import { IProject } from "@/types";
 
-export interface IProject {
-	i?: number;
-	title: string;
-	desc: string;
-	image: ReactNode;
-	demoUrl: string;
-}
 
 function Project({ i, title, desc, image, demoUrl }: IProject) {
 	return (

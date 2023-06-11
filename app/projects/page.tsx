@@ -1,10 +1,11 @@
 import { Metadata } from "next";
-import Project, { IProject } from "@/components/Project";
+import Project from "@/components/Project";
 import rolling from "@/public/rolling.png";
 import yt from "@/public/yt.png";
 import club from "@/public/club.png";
 import pizza from "@/public/react_pizza.png";
 import Image from "next/image";
+import { IProject } from "@/types";
 
 export const metadata: Metadata = {
 	title: "Проекты",
