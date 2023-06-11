@@ -1,13 +1,14 @@
 "use client";
 import { useForm } from "react-hook-form";
 import CodeHighlighter from "@/components/CodeHighlighter";
-import {formFields } from "./constants";
+import { formFields } from "./constants";
 import { useState } from "react";
 import { IInputs } from "@/types";
 
 export default function Contact() {
 	const [isSubmitted, setIsSubmitted] = useState(false);
 	const [submitMessage, setsubmitMessage] = useState("");
+	const [sending, setSending] = useState(false);
 	const {
 		register,
 		handleSubmit,
@@ -18,6 +19,7 @@ export default function Contact() {
 	const onSubmitForm = async (data: IInputs) => {
 		"use server";
 		try {
+			setSending(true);
 			const res = await fetch(`api/contact`, {
 				method: "POST",
 				headers: {
@@ -28,6 +30,7 @@ export default function Contact() {
 			const { error } = await res.json();
 			if (error) {
 				console.log(error);
+				
 				setsubmitMessage(
 					"Произошла техническая ошибка, попробуйте написать в telegram"
 				);
@@ -43,6 +46,7 @@ export default function Contact() {
 				"Произошла техническая ошибка, попробуйте написать в telegram"
 			);
 		} finally {
+			setSending(false);
 			setIsSubmitted(true);
 		}
 	};
@@ -95,7 +99,13 @@ button.addEventListener('click', () => {
 									)}
 								</div>
 							))}
-							<input className="button-default" type="submit" />
+							<input
+								className={`button-default ${
+									sending ? "loading" : ""
+								}`}
+								disabled={sending?true:false}
+								type="submit"
+							/>
 						</form>
 					</>
 				) : (

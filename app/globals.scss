@@ -57,8 +57,29 @@ div {
 	@include flex-row;
 	@include button;
 	background: #1c2b3a;
+	&.loading {
+		background: linear-gradient(to right, #011627, #1c2b3a, #011627);
+		background-size: 200% 100%;
+		animation: loading 3s linear infinite;
+		&:hover {
+			background: linear-gradient(to right, #011627, #1c2b3a, #011627);
+			background-size: 200% 100%;
+			animation: loading 3s linear infinite;
+		}
+	}
 	&:hover {
 		background: #263b50;
+	}
+}
+@keyframes loading {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
 	}
 }
 .button-ghost {
