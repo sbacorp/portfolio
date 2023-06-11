@@ -1,5 +1,4 @@
 export default function Loading() {
-	// You can add any UI inside Loading, including a Skeleton.
 	return (
 		<svg
 			className="pl  absolute top-1/2 left-[45%]"
