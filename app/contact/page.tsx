@@ -17,7 +17,6 @@ export default function Contact() {
 	} = useForm<IInputs>();
 
 	const onSubmitForm = async (data: IInputs) => {
-		"use server";
 		try {
 			setSending(true);
 			const res = await fetch(`api/contact`, {
