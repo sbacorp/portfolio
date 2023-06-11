@@ -30,7 +30,7 @@ function page() {
 			title: "mega",
 			desc: "Сайт для сети компьютерных клубов. Мой первый проект",
 			image: <Image placeholder="blur" src={club} alt={"Mega"} />,
-			demoUrl: "https://youtube-clone-ivory.vercel.app/",
+			demoUrl: "https://mega-premium.vercel.app/",
 		},
 		{
 			title: "youtube-клон",
