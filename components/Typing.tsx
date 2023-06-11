@@ -1,10 +1,8 @@
 "use client";
+import { TypingEffectProps } from "@/types";
 import React, { useEffect, useRef, useState } from "react";
 
-interface TypingEffectProps {
-	toRotate: string[];
-	period?: number;
-}
+
 
 const TypingEffect: React.FC<TypingEffectProps> = ({
 	toRotate,

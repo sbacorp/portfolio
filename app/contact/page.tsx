@@ -1,9 +1,9 @@
 "use client";
 import { useForm } from "react-hook-form";
-
 import CodeHighlighter from "@/components/CodeHighlighter";
-import { IInputs, formFields } from "./constants";
+import {formFields } from "./constants";
 import { useState } from "react";
+import { IInputs } from "@/types";
 
 export default function Contact() {
 	const [isSubmitted, setIsSubmitted] = useState(false);

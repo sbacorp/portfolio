@@ -1,8 +1,3 @@
-export interface IInputs {
-	name: string;
-	email: string;
-	message: string;
-}
 export const formFields = [
 	{
 		label: "_Имя:",

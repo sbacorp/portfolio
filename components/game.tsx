@@ -1,9 +1,6 @@
 "use client";
+import { IPosition } from "@/types";
 import { useState, useEffect } from "react";
-interface IPosition {
-	x: number;
-	y: number;
-}
 enum Direction {
 	Up = "up",
 	Down = "down",
