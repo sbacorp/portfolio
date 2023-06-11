@@ -1,9 +1,9 @@
 import { Database, Experience } from "@/types";
 import { createKysely } from "@vercel/postgres-kysely";
-
+import { cache } from "react";
 const db = createKysely<Database>();
 
-export async function getInfo(targetSlug: string): Promise<Experience | null> {
+export const getInfo = cache( async function getInfo(targetSlug: string): Promise<Experience | null> {
 	const res = await db
 		.selectFrom("info")
 		.select([
@@ -16,6 +16,6 @@ export async function getInfo(targetSlug: string): Promise<Experience | null> {
 
 	
 	return res[0];
-}
+})
 
 

@@ -17,29 +17,25 @@ function page() {
 		{
 			title: "менеджер-задач",
 			desc: "Менеджер задач по типу kanban",
-			image: (
-				<Image src={rolling} alt={"менеджер-задач"} />
-			),
+			image: <Image placeholder="blur" src={rolling} alt={"менеджер-задач"} />,
 			demoUrl: "https://task-manager-puce-xi.vercel.app",
 		},
 		{
 			title: "интернет-пиццерия",
 			desc: "Интернет магазин по заказу пиццы",
-			image: (
-				<Image src={pizza} alt={"интернет-пиццерия"} />
-			),
+			image: <Image placeholder="blur" src={pizza} alt={"интернет-пиццерия"} />,
 			demoUrl: "https://react-pizza-app-five.vercel.app/",
 		},
 		{
 			title: "mega",
 			desc: "Сайт для сети компьютерных клубов. Мой первый проект",
-			image: <Image src={club} alt={"Mega"} />,
+			image: <Image placeholder="blur" src={club} alt={"Mega"} />,
 			demoUrl: "https://youtube-clone-ivory.vercel.app/",
 		},
 		{
 			title: "youtube-клон",
 			desc: "Простой клон вмдеохостинга Youtube, работа с yt api",
-			image: <Image src={yt} alt={"youtube-клон"}  />,
+			image: <Image placeholder="blur" src={yt} alt={"youtube-клон"} />,
 			demoUrl: "https://youtube-clone-ivory.vercel.app/",
 		},
 	];
