@@ -21,7 +21,7 @@ export default async function SkillsInfo({ params: { slug } }: Props) {
 	);
 }
 
-export async function getInfo(slug: string): Promise<Experience | null> {
+ async function getInfo(slug: string): Promise<Experience | null> {
 	const { data, error } = await supabase
 		.from("portfolio")
 		.select("*")
