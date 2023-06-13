@@ -5,16 +5,10 @@ type Props = {
 	params: { slug: string };
 };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-	let { data: title, error } = await supabase
-		.from("portfolio")
-		.select("title")
-		.eq("slug", params.slug)
-		.single();
-
-	if (error) console.log(error);
+	const data:Experience = await getInfo(params.slug);
 
 	return {
-		title: title ? String(title) : "",
+		title: data.title,
 	};
 }
 
