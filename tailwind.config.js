@@ -15,6 +15,11 @@ module.exports = {
       "head": "62px",
     },
     extend: {
+      fontFamily: {
+        sans: ['var(--font-fira-code)'],
+        mono: ['var(--font-fira-code)'],
+      },
+
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },

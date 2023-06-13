@@ -2,6 +2,8 @@
 
 import { ReactNode, useState } from "react";
 import { MdArrowRight } from "react-icons/md";
+import dynamic from "next/dynamic";
+
 import { motion } from "framer-motion";
 
 export const FADE_DOWN_ANIMATION_SETTINGS = {
@@ -15,6 +17,7 @@ function Dropdown({ title, items }: { title: string; items: ReactNode[] }) {
 	const toggleDropdown = () => {
 		setIsOpen(!isOpen);
 	};
+
 	return (
 		<div>
 			<div
