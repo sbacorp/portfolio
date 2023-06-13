@@ -1,9 +1,10 @@
 import { Metadata } from "next";
 import GameContainer from "@/components/gameContainer";
 import Typing from "@/components/Typing";
+
 export const metadata: Metadata = {
 	title: "Shankin Dev",
-	description: "Приветствую вас на Shankin Dev",
+	description: "Shankin Dev - Frontend разработчик",
 };
 export default function Home() {
 	return (
