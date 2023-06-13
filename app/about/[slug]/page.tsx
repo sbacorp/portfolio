@@ -5,10 +5,10 @@ type Props = {
 	params: { slug: string };
 };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-	const data:Experience = await getInfo(params.slug);
+	const data: Experience | null = await getInfo(params.slug);
 
 	return {
-		title: data.title,
+		title: data?.title || "Информация",
 	};
 }
 
