@@ -5,8 +5,6 @@ import { BiMailSend, BiPhoneCall } from "react-icons/bi";
 import Link from "next/link";
 
 function layout({ children }: { children: React.ReactNode }) {
-	const [activeTab, setActiveTab] = useState("био");
-
 	return (
 		<div className="w-full h-full flex flex-col">
 			<div className="flex flex-grow flex-col lg:flex-row">
@@ -28,7 +26,7 @@ function layout({ children }: { children: React.ReactNode }) {
 						title="о-себе"
 						items={[
 							<Link
-								onClick={() => setActiveTab("био")}
+								
 								className="w-full block"
 								href={"/about/personalInfo"}
 							>
@@ -40,21 +38,21 @@ function layout({ children }: { children: React.ReactNode }) {
 						title="навыки"
 						items={[
 							<Link
-								onClick={() => setActiveTab("frontend")}
+								
 								className="w-full block"
 								href={"/about/frontend"}
 							>
 								frontend
 							</Link>,
 							<Link
-								onClick={() => setActiveTab("бд")}
+								
 								className="w-full block"
 								href={"/about/database"}
 							>
 								бд
 							</Link>,
 							<Link
-								onClick={() => setActiveTab("алгоритмы")}
+								
 								className="w-full block"
 								href={"/about/algorithms"}
 							>
@@ -63,16 +61,9 @@ function layout({ children }: { children: React.ReactNode }) {
 						]}
 					/>
 				</aside>
-				<div className="flex flex-col flex-grow">
-					<header className="hidden lg:block w-full h-10 border-b border-solid border-line">
-						<span className="hidden lg:flex items-center justify-center px-3 text- w-fit h-full border-r border-solid border-line shrink-0">
-							{activeTab}
-						</span>
-					</header>
 					<main className="w-full h-full flex-grow flex items-center flex-col justify-center">
 						{children}
 					</main>
-				</div>
 			</div>
 		</div>
 	);

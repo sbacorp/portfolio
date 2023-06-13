@@ -1,10 +1,10 @@
 import { Metadata } from "next";
+import Dropdown from "@/components/dropdown";
+import { BiMailSend, BiPhoneCall } from "react-icons/bi";
 export const metadata: Metadata = {
 	title: "Напиши Мне",
 	description: "Оставь сообщение на Shankin Dev",
 };
-import Dropdown from "@/components/dropdown";
-import { BiMailSend, BiPhoneCall } from "react-icons/bi";
 function layout({ children }: { children: React.ReactNode }) {
 	return (
 		<div className="w-full h-full flex flex-col">
@@ -24,12 +24,7 @@ function layout({ children }: { children: React.ReactNode }) {
 						]}
 					/>
 				</aside>
-				<div className="flex flex-col flex-grow h-full justify-start">
-					<header className="hidden lg:block w-full h-10 border-b border-solid border-line">
-						<span className="hidden lg:flex items-center px-3 h-full ">
-							Контакты
-						</span>
-					</header>
+				<div className="flex flex-col flex-grow h-full justify-center items-evently">
 					{children}
 				</div>
 			</div>
