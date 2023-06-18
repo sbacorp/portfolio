@@ -1,6 +1,5 @@
 import { IProject } from "@/types";
 
-
 function Project({ i, title, desc, image, demoUrl }: IProject) {
 	return (
 		<div className="flex flex-col justify-start w-4/5 sm:w-[300px]">
@@ -16,7 +15,7 @@ function Project({ i, title, desc, image, demoUrl }: IProject) {
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					демо
+					DEMO
 				</a>
 			</div>
 		</div>

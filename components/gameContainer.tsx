@@ -10,7 +10,7 @@ function GameContainer() {
 			<Game remainedFood={remainedFood} setRemainedFood={setRemainedFood} />
 			<div className="right flex flex-col">
 				<div className="info-key flex flex-col items-center gap-2 text-white text-code text-left">
-					<KeysArrows />// осталось съесть :
+					<KeysArrows />// food left :
 					<div className="grid grid-cols-5 gap-5">
 						{remainedFood.map((_, i) => (
 							<div

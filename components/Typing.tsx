@@ -2,8 +2,6 @@
 import { TypingEffectProps } from "@/types";
 import React, { useEffect, useRef, useState } from "react";
 
-
-
 const TypingEffect: React.FC<TypingEffectProps> = ({
 	toRotate,
 	period = 200,
@@ -61,7 +59,7 @@ const TypingEffect: React.FC<TypingEffectProps> = ({
 
 	return (
 		<div ref={elRef}>
-			<p className="text-body">Привет! Меня зовут</p>
+			<p className="text-body">Hi all. I am</p>
 			<div className="flex sm:gap-3 flex-wrap">
 				<p
 					className="text-[46px] md:text-head typewrite"

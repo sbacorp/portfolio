@@ -4,7 +4,7 @@ import Typing from "@/components/Typing";
 
 export const metadata: Metadata = {
 	title: "Shankin Dev",
-	description: "Shankin Dev - Frontend разработчик",
+	description: "Shankin Dev - Frontend developer",
 };
 export default function Home() {
 	return (
@@ -19,20 +19,14 @@ export default function Home() {
 			/>
 
 			<div className="welcome flex flex-col text-white">
-				<Typing toRotate={["Богдан", "Шанькин"]} />
-				<p className="text-subhead">
-					{">"} Frontend разработчик
-				</p>
+				<Typing toRotate={["Bogdan", "Shankin"]} />
+				<p className="text-subhead">{">"} Front-end developer</p>
 				<p className="text-body z-30 mt-20 hidden xl:block">
-					// Здесь ты можешь поймать настольгию {"->"}
+					// complete the game {"->"}
 				</p>
-				<p className="text-body z-30 mt-5 hidden xl:block">
-					// Так же можешь ознакомиться с моей Github страницей
+				<p className="text-body z-30  hidden xl:block">
+					// you can also see it on my Github page
 				</p>
-				<p className="text-body z-30 block xl:hidden">
-					// Здесь можешь ознакомиться с моей Github страницей
-				</p>
-
 				<p className="z-30 text-lables">
 					<span className="text-secondary3 mr-2"> const</span>
 					<span>

@@ -13,10 +13,10 @@ export const FADE_IN_ANIMATION_SETTINGS = {
 };
 
 export const links = [
-	{ href: "/", text: "_привет" },
-	{ href: "/about/personalInfo", text: "_обо-мне" },
-	{ href: "/projects", text: "_портфолио" },
-	{ href: "/contact", text: "_напиши-мне" },
+	{ href: "/", text: "_hello" },
+	{ href: "/about/personalInfo", text: "_about-me" },
+	{ href: "/projects", text: "_projects" },
+	{ href: "/contact", text: "_contact-me" },
 ];
 function Header() {
 	const [active, setActive] = useState(false);
@@ -34,7 +34,7 @@ function Header() {
 					}`}
 				>
 					<li className="z-50 flex items-center w-full lg:w-64 pl-6 h-14 lg:border-b-0 border-b border-solid border-line ">
-						Богдан Шанькин
+						Bogdan Shankin
 					</li>
 					{links.map((link, i) => {
 						const isActive = pathname === link.href;

@@ -29,21 +29,19 @@ export default function Contact() {
 			const { error } = await res.json();
 			if (error) {
 				console.log(error);
-				
+
 				setsubmitMessage(
-					"Произошла техническая ошибка, попробуйте написать в telegram"
+					"There was a technical error, try to write to telegram"
 				);
 				return;
 			} else {
 				setsubmitMessage(
-					"Спасибо за обращение! Мы уже читаем ваше сообщение и скоро ответим"
+					"Thank you for contacting me! I am already reading your message and we will reply soon."
 				);
 			}
 		} catch (error) {
 			console.log(error);
-			setsubmitMessage(
-				"Произошла техническая ошибка, попробуйте написать в telegram"
-			);
+			setsubmitMessage("There was a technical error, try to write to telegram");
 		} finally {
 			setSending(false);
 			setIsSubmitted(true);
@@ -99,23 +97,22 @@ button.addEventListener('click', () => {
 								</div>
 							))}
 							<input
-								className={`button-default ${
-									sending ? "loading" : ""
-								}`}
-								disabled={sending?true:false}
+								className={`button-default ${sending ? "loading" : ""}`}
+								disabled={sending ? true : false}
 								type="submit"
+								value="submit-message"
 							/>
 						</form>
 					</>
 				) : (
 					<>
-						<p className=" text-subhead text-white text-center">Спасибо! 🤘</p>
+						<p className=" text-subhead text-white text-center">Thanks! 🤘</p>
 						<p className="text-body text-center max-w-xs">{submitMessage}</p>
 						<button
 							className="button-default"
 							onClick={() => setIsSubmitted(false)}
 						>
-							новое-сообщение
+							new-message
 						</button>
 					</>
 				)}

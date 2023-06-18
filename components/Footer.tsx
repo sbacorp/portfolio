@@ -5,7 +5,7 @@ function Footer() {
 		<div className=" h-10 min-h-[40px] w-full border-t border-solid border-line text-grey flex flex-row justify-start pl-6">
 			<ul className="footer flex flex-row justify-start items-center w-full">
 				<li className="flex items-center h-full text-code lg:text-lables pr-2 w-fit">
-					Найди меня тут:
+					find me in:
 				</li>
 				<li
 					className={`flex items-center px-4 border-solid border-x border-line h-full`}
