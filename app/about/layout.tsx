@@ -8,15 +8,23 @@ function layout({ children }: { children: ReactNode }) {
 	return (
 		<div className="w-full h-full flex flex-col">
 			<div className="flex flex-grow flex-col lg:flex-row">
-				<aside className="aside w-full min-w-[256px] min-w  lg:w-64 border-r border-solid border-line">
+				<aside className="w-full min-w-[256px] min-w  lg:w-64 border-r border-solid border-line">
 					<Dropdown
 						title="contacts"
 						items={[
-							<Link className="flex items-center gap-1" href="/contact#name">
+							<Link
+								key={0}
+								className="flex items-center gap-1"
+								href="/contact#name"
+							>
 								<BiMailSend className="h-4 w-4" />
 								Email
 							</Link>,
-							<a className="flex items-center gap-1" href="tel:+79957942415">
+							<a
+								key={1}
+								className="flex items-center gap-1"
+								href="tel:+79957942415"
+							>
 								<BiPhoneCall className="h-4 w-4" />
 								+7(995)7942415
 							</a>,
@@ -25,7 +33,11 @@ function layout({ children }: { children: ReactNode }) {
 					<Dropdown
 						title="personal-info"
 						items={[
-							<Link className="w-full block" href={"/about/personalInfo"}>
+							<Link
+								key={0}
+								className="w-full block"
+								href={"/about/personalInfo"}
+							>
 								bio
 							</Link>,
 						]}
@@ -33,13 +45,25 @@ function layout({ children }: { children: ReactNode }) {
 					<Dropdown
 						title="skills"
 						items={[
-							<Link className="w-full block" href={"/about/frontend"}>
+							<Link
+								key={"frontend"}
+								className="w-full block"
+								href={"/about/frontend"}
+							>
 								frontend
 							</Link>,
-							<Link className="w-full block" href={"/about/database"}>
+							<Link
+								key={"databases"}
+								className="w-full block"
+								href={"/about/database"}
+							>
 								databases
 							</Link>,
-							<Link className="w-full block" href={"/about/algorithms"}>
+							<Link
+								key={"algorithms"}
+								className="w-full block"
+								href={"/about/algorithms"}
+							>
 								algorithms
 							</Link>,
 						]}

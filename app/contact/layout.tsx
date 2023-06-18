@@ -13,11 +13,15 @@ function layout({ children }: { children: React.ReactNode }) {
 					<Dropdown
 						title="contacts"
 						items={[
-							<a className="flex items-center gap-1" href="#name">
+							<a key={0} className="flex items-center gap-1" href="#name">
 								<BiMailSend className="h-4 w-4" />
 								Email
 							</a>,
-							<a className="flex items-center gap-1" href="tel:+79957942415">
+							<a
+								key={1}
+								className="flex items-center gap-1"
+								href="tel:+79957942415"
+							>
 								<BiPhoneCall className="h-4 w-4" />
 								+7(995)7942415
 							</a>,

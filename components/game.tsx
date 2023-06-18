@@ -8,7 +8,6 @@ enum Direction {
 	Right = "right",
 }
 const initialSnake = [
-
 	{ x: 7, y: 15 },
 	{ x: 7, y: 16 },
 	{ x: 7, y: 17 },
@@ -27,21 +26,38 @@ const SnakeGame = ({
 	const [gameOver, setGameOver] = useState(false);
 	const [gameStarted, setGameStarted] = useState(false);
 	const [gameOverText, setGameOverText] = useState<string>("ПОРАЖЕНИЕ!");
+	const state = {
+		snake,
+		food,
+		direction,
+		gameOver,
+		gameStarted,
+		gameOverText,
+		remainedFood,
+	};
+	const setState = {
+		setSnake,
+		setFood,
+		setDirection,
+		setGameOver,
+		setGameStarted,
+		setGameOverText,
+		setRemainedFood,
+	};
 	const gameWidth = 15;
 	const gameHeight = 30;
-
-	// Инициализация змейки и пищи при загрузке компонента
 	useEffect(() => {
 		initializeGame();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	// Инициализация игры
 	const initializeGame = () => {
-		setSnake(initialSnake);
+		setState.setSnake(initialSnake);
+		setState.setDirection(Direction.Up);
+		setState.setGameOver(false);
+		setState.setGameStarted(false);
 		generateFood();
-		setDirection(Direction.Up);
-		setGameOver(false);
-		setGameStarted(false);
 	};
 
 	// Генерация случайной пищи
@@ -50,22 +66,22 @@ const SnakeGame = ({
 			x: Math.floor(Math.random() * gameWidth),
 			y: Math.floor(Math.random() * gameHeight),
 		};
-		setFood(newFood);
+		setState.setFood(newFood);
 	};
 
 	// Обработка нажатия клавиш для изменения направления движения
 	useEffect(() => {
-		if (gameOver || !gameStarted) return;
+		if (state.gameOver || !state.gameStarted) return;
 
 		const handleKeyDown = (e: KeyboardEvent) => {
-			if (e.key === "ArrowUp" && direction !== Direction.Down) {
-				setDirection(Direction.Up);
-			} else if (e.key === "ArrowDown" && direction !== Direction.Up) {
-				setDirection(Direction.Down);
-			} else if (e.key === "ArrowLeft" && direction !== Direction.Right) {
-				setDirection(Direction.Left);
-			} else if (e.key === "ArrowRight" && direction !== Direction.Left) {
-				setDirection(Direction.Right);
+			if (e.key === "ArrowUp" && state.direction !== Direction.Down) {
+				setState.setDirection(Direction.Up);
+			} else if (e.key === "ArrowDown" && state.direction !== Direction.Up) {
+				setState.setDirection(Direction.Down);
+			} else if (e.key === "ArrowLeft" && state.direction !== Direction.Right) {
+				setState.setDirection(Direction.Left);
+			} else if (e.key === "ArrowRight" && state.direction !== Direction.Left) {
+				setState.setDirection(Direction.Right);
 			}
 		};
 
@@ -73,12 +89,11 @@ const SnakeGame = ({
 		return () => {
 			document.removeEventListener("keydown", handleKeyDown);
 		};
-	}, [direction, gameOver, gameStarted]);
+	}, [state.direction, state.gameOver, state.gameStarted]);
 
 	// Обновление положения змейки и проверка на столкновение с пищей или самой собой
 	useEffect(() => {
-		if (gameOver || !gameStarted) return;
-
+		if (state.gameOver || !state.gameStarted) return;
 		const interval = setInterval(() => {
 			moveSnake();
 		}, 100);
@@ -86,11 +101,11 @@ const SnakeGame = ({
 		return () => {
 			clearInterval(interval);
 		};
-	}, [snake, gameOver, gameStarted]);
+	}, [state.snake, state.gameOver, state.gameStarted]);
 
 	const moveSnake = () => {
-		const head = { ...snake[0] };
-		switch (direction) {
+		const head = { ...state.snake[0] };
+		switch (state.direction) {
 			case Direction.Up:
 				head.y = (head.y - 1 + gameHeight) % gameHeight;
 				break;
@@ -106,50 +121,47 @@ const SnakeGame = ({
 			default:
 				break;
 		}
-
-		const newSnake = [head, ...snake];
+		const newSnake = [head, ...state.snake];
 		if (head.x === food.x && head.y === food.y) {
-			setRemainedFood(remainedFood.splice(0, remainedFood.length - 1));
+			setState.setRemainedFood(remainedFood.splice(0, remainedFood.length - 1));
 			generateFood();
 		} else {
 			newSnake.pop();
 		}
 
-		setSnake(newSnake);
+		setState.setSnake(newSnake);
 		checkCollision(head);
 	};
 	useEffect(() => {
-		if (remainedFood.length === 0) {
-			setGameOver(true)
-			setGameOverText("ПОБЕДА!");
+		if (state.remainedFood.length === 0) {
+			setState.setGameOver(true);
+			setState.setGameOverText("ПОБЕДА!");
 		}
-	}, [remainedFood]);
+	}, [state.remainedFood]);
 	// Проверка на столкновение с границами или самой собой
 	const checkCollision = (head: { x: number; y: number }) => {
 		const collidedWithBorder =
 			head.x < 0 || head.x >= gameWidth || head.y < 0 || head.y >= gameHeight;
-		const collidedWithSelf = snake
+		const collidedWithSelf = state.snake
 			.slice(1)
 			.some((segment) => segment.x === head.x && segment.y === head.y);
 
 		if (collidedWithBorder || collidedWithSelf) {
-			setGameOver(true);
-			setGameOverText("ПОРАЖЕНИЕ!");
+			setState.setGameOver(true);
+			setState.setGameOverText("ПОРАЖЕНИЕ!");
 		}
 	};
 
-	// Обработка клика по кнопке перезагрузки
 	const handleRestartClick = () => {
 		initializeGame();
-		setRemainedFood(new Array(10).fill(""));
-		setGameStarted(true);
-		
+		setState.setRemainedFood(new Array(10).fill(""));
+		setState.setGameStarted(true);
 	};
 
 	// Обработка клика по кнопке старта
 	const handleStartClick = () => {
-		setGameStarted(true);
-		setRemainedFood(new Array(10).fill(""));
+		setState.setGameStarted(true);
+		setState.setRemainedFood(new Array(10).fill(""));
 	};
 
 	return (
@@ -184,10 +196,10 @@ const SnakeGame = ({
 						</div>
 					))}
 			</div>
-			{gameOver && (
+			{state.gameOver && (
 				<div>
 					<div className="game-over absolute bottom-20 left-[5px] w-48 text-center py-3 text-accent2">
-						{gameOverText}
+						{state.gameOverText}
 					</div>
 					<button
 						className="absolute bottom-5 left-[20%] button-default text-code"
@@ -197,7 +209,7 @@ const SnakeGame = ({
 					</button>
 				</div>
 			)}
-			{!gameOver && !gameStarted && (
+			{!state.gameOver && !state.gameStarted && (
 				<button
 					className="absolute bottom-5 left-[20%] button-primary text-code"
 					onClick={handleStartClick}

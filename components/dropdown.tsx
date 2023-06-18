@@ -1,16 +1,9 @@
 "use client";
-
 import { ReactNode, useState } from "react";
 import { MdArrowRight } from "react-icons/md";
-import dynamic from "next/dynamic";
-
 import { motion } from "framer-motion";
+import { FADE_DOWN_ANIMATION_SETTINGS } from "@/constants";
 
-export const FADE_DOWN_ANIMATION_SETTINGS = {
-	initial: { y: -50, opacity: 0 },
-	animate: { y: 0, opacity: 1 },
-	transition: { duration: 0.2, type: "tween" },
-};
 function Dropdown({ title, items }: { title: string; items: ReactNode[] }) {
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -36,7 +29,11 @@ function Dropdown({ title, items }: { title: string; items: ReactNode[] }) {
 			{isOpen && (
 				<motion.div {...FADE_DOWN_ANIMATION_SETTINGS}>
 					{items.map((el, i) => (
-						<div onClick={() => setIsOpen(false)} className="pl-12 w-full h-8" key={i}>
+						<div
+							onClick={() => setIsOpen(false)}
+							className="pl-12 w-full h-8"
+							key={i}
+						>
 							{el}
 						</div>
 					))}

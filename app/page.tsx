@@ -22,10 +22,10 @@ export default function Home() {
 				<Typing toRotate={["Bogdan", "Shankin"]} />
 				<p className="text-subhead">{">"} Front-end developer</p>
 				<p className="text-body z-30 mt-20 hidden xl:block">
-					// complete the game {"->"}
+					{"// complete the game ->"}
 				</p>
 				<p className="text-body z-30  hidden xl:block">
-					// you can also see it on my Github page
+					{"// you can also see it on my Github page"}
 				</p>
 				<p className="z-30 text-lables">
 					<span className="text-secondary3 mr-2"> const</span>

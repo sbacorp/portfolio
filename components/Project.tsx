@@ -4,7 +4,7 @@ function Project({ i, title, desc, image, demoUrl }: IProject) {
 	return (
 		<div className="flex flex-col justify-start w-4/5 sm:w-[300px]">
 			<p className="text-lables text-secondary3 ">
-				Project {i} <p className="text-code text-line">//_{title}</p>
+				Project {i} <p className="text-code text-line">{"//_"}{title}</p>
 			</p>
 			<div className=" bg-primary3 rounded-b-2xl border border-line h-fit pb-3 w-fit flex flex-col gap-2 items-center ">
 				{image}

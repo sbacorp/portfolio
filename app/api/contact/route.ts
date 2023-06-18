@@ -23,8 +23,12 @@ export async function POST(req: Request) {
         <p><strong>Message: </strong> ${message}</p><br>
       `,
 		});
-	} catch (error: any) {
-		return NextResponse.json({ error: error.toString() });
+	} catch (error: unknown) {
+		if (typeof error === "string") {
+			return NextResponse.json({ error });
+		} else {
+			return NextResponse.json({ error: "An unknown error occurred." });
+		}
 	}
 	return NextResponse.json({ message: "ok" });
 }

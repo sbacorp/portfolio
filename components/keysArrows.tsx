@@ -3,7 +3,7 @@ import { MdArrowLeft, MdArrowDropUp } from "react-icons/md";
 function KeysArrows() {
 	return (
 		<>
-			// use keyboard <br/> // arrows to play
+			{"// use keyboard"} <br /> {"// arrows to play"}
 			<div className="flex items-center justify-center border border-solid border-line rounded-lg h-7 w-12 bg-primary1">
 				<MdArrowDropUp className="h-7 w-12 " />
 			</div>
