@@ -1,27 +1,27 @@
-import { MdArrowLeft, MdArrowDropUp } from "react-icons/md";
+import {
+	MdArrowLeft,
+	MdArrowDropUp,
+	MdArrowDropDown,
+	MdArrowRight,
+} from "react-icons/md";
 
 function KeysArrows() {
 	return (
 		<>
 			{"// use keyboard"} <br /> {"// arrows to play"}
-			<div className="flex items-center justify-center border border-solid border-line rounded-lg h-7 w-12 bg-primary1">
-				<MdArrowDropUp className="h-7 w-12 " />
+			<div className="flex items-center justify-center border  border-line rounded-lg h-7 w-12 bg-primary1">
+				<MdArrowDropUp size={28} />
 			</div>
 			<div className="flex gap-2">
-				{Array(3)
-					.fill("")
-					.map((_, i) => (
-						<div
-							key={i}
-							className="flex items-center justify-center border border-solid border-line rounded-lg  bg-primary1 "
-						>
-							<MdArrowLeft
-								className={`h-7 w-12 ${
-									i == 1 ? "-rotate-90" : `rotate-${90 * i}`
-								}`}
-							/>
-						</div>
-					))}
+				<div className="flex items-center justify-center border  border-line rounded-lg  bg-primary1  h-7 w-12">
+					<MdArrowLeft size={28} />
+				</div>
+				<div className="flex items-center justify-center border  border-line rounded-lg  bg-primary1  h-7 w-12">
+					<MdArrowDropDown size={28} />
+				</div>
+				<div className="flex items-center justify-center border  border-line rounded-lg  bg-primary1  h-7 w-12">
+					<MdArrowRight size={28} />
+				</div>
 			</div>
 		</>
 	);
