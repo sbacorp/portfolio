@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 		title: data?.title || "Info",
 	};
 }
-
+export const revalidate = 60;
 export default async function SkillsInfo({ params: { slug } }: Props) {
 	const skills: Experience | null = await getInfo(slug);
 	return (

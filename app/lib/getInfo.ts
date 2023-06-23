@@ -1,6 +1,5 @@
 "use server";
 import { Experience } from "@/types";
-import { cache } from "react";
 import { supabase } from "./supabase";
 
 export const getInfo = async function (
