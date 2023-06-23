@@ -4,6 +4,7 @@ import { getInfo } from "@/app/lib/getInfo";
 type Props = {
 	params: { slug: string };
 };
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const data: Experience | null = await getInfo(params.slug);
 	return {

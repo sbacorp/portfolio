@@ -1,8 +1,9 @@
+"use server";
 import { Experience } from "@/types";
 import { cache } from "react";
 import { supabase } from "./supabase";
 
-export const getInfo = cache(async function getInfo(
+export const getInfo = cache(async function (
 	slug: string
 ): Promise<Experience | null> {
 	const { data, error } = await supabase

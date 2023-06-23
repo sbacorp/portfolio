@@ -4,20 +4,10 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { HiMenu, HiOutlineX } from "react-icons/hi";
 import { motion } from "framer-motion";
+import { links } from "@/constants";
 
 
-export const FADE_IN_ANIMATION_SETTINGS = {
-	initial: { opacity: 0 },
-	animate: { opacity: 1 },
-	transition: { duration: 0.5, type: "spring" },
-};
 
-export const links = [
-	{ href: "/", text: "_hello" },
-	{ href: "/about/personalInfo", text: "_about-me" },
-	{ href: "/projects", text: "_projects" },
-	{ href: "/contact", text: "_contact-me" },
-];
 function Header() {
 	const [active, setActive] = useState(false);
 	useEffect(() => {
