@@ -3,7 +3,7 @@ import { Experience } from "@/types";
 import { cache } from "react";
 import { supabase } from "./supabase";
 
-export const getInfo = cache(async function (
+export const getInfo = async function (
 	slug: string
 ): Promise<Experience | null> {
 	const { data, error } = await supabase
@@ -27,4 +27,4 @@ export const getInfo = cache(async function (
 	}
 
 	return null;
-});
+};
