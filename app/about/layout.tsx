@@ -13,6 +13,7 @@ function layout({ children }: { children: ReactNode }) {
 						title="contacts"
 						items={[
 							<Link
+								key={0}
 								className="flex items-center gap-1"
 								href="/contact#name"
 							>
@@ -20,6 +21,7 @@ function layout({ children }: { children: ReactNode }) {
 								Email
 							</Link>,
 							<a
+								key={1}
 								className="flex items-center gap-1"
 								href="tel:+79957942415"
 							>
