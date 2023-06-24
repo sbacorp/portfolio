@@ -17,9 +17,9 @@ export default function RootLayout({
 	return (
 		<html lang="en" className={`${fira.variable}`}>
 			<body className="text-grey overflow-x-hidden w-screen h-screen bg-primary1 px-1 py-2">
-				<div className="scroll mx-auto relative bg-primary2 h-full rounded-md border border-line flex flex-col pt-12 overflow-y-auto  overflow-x-hidden">
+				<div className="scroll mx-auto relative bg-primary2 h-full rounded-md border border-line flex flex-col pt-12 overflow-y-hidden  overflow-x-hidden">
 					<Header />
-					<main className="w-full flex-grow flex items-center flex-col justify-center">
+					<main className="w-full flex-grow flex items-center flex-col justify-center overflow-y-auto scroll h-fit">
 						{children}
 					</main>
 					<Footer />

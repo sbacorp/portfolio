@@ -20,12 +20,17 @@ type Experience = {
 	description: string;
 };
 interface IProject {
-	i?: number;
+	i: number;
 	title: string;
 	desc: string;
-	image: ReactNode;
+	image?: ReactNode;
 	demoUrl: string;
+	gitUrl?: string;
+	keyFeatures?: string;
+	technologies?: string;
+	conclusion?: string;
 }
+type ProjectComponentProps = Omit<IProject, "desc">;
 interface TypingEffectProps {
 	toRotate: string[];
 	period?: number;
@@ -38,11 +43,4 @@ export interface IInputs {
 	name: string;
 	email: string;
 	message: string;
-}
-export interface IProject {
-	i?: number;
-	title: string;
-	desc: string;
-	image: ReactNode;
-	demoUrl: string;
 }

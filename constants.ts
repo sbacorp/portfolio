@@ -16,3 +16,4 @@ export const links = [
 	{ href: "/projects", text: "_projects" },
 	{ href: "/contact", text: "_contact-me" },
 ];
+
