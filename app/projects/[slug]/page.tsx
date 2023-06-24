@@ -3,17 +3,20 @@ import { IProject } from "@/types";
 import { getProject } from "@/app/lib/getProject";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-	title: "About project",
-	description: "On this page you can read more about my projects",
-};
-
 type Props = {
 	params: { slug: string };
 };
+
 export const revalidate = 10;
-async function page({ params: { slug } }: Props) {
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+	return {
+		title: "About " + params.slug || "About project",
+		description: `On this page you can read more about ${params.slug} project`,
+	};
+}
+
+export default async function page({ params: { slug } }: Props) {
 	const project: IProject | null = await getProject(slug);
 	console.log(project);
 	if (!project) {
@@ -42,9 +45,12 @@ async function page({ params: { slug } }: Props) {
 						Technologies used :
 					</span>
 					{project.technologies &&
-						project.technologies
-							.split("\n")
-							.map((el, i) => <p className=" text-ellipsis" key={i}> {`${el}`}</p>)}
+						project.technologies.split("\n").map((el, i) => (
+							<p className=" text-ellipsis" key={i}>
+								{" "}
+								{`${el}`}
+							</p>
+						))}
 				</div>
 				<div className="desc text-body">{project.conclusion}</div>
 				<div className="links flex gap-5 justify-end w-full py-6 first:justify-start">
@@ -73,5 +79,3 @@ async function page({ params: { slug } }: Props) {
 		</div>
 	);
 }
-
-export default page;
