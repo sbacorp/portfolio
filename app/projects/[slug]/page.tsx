@@ -52,6 +52,10 @@ export default async function page({ params: { slug } }: Props) {
 							</p>
 						))}
 				</div>
+				<div className="conclusion">
+					<span className="text-body text-secondary3 block">Conclusion :</span>
+					<p className=" text-ellipsis">{project.conclusion}</p>
+				</div>
 				<div className="desc text-body">{project.conclusion}</div>
 				<div className="links flex gap-5 justify-end w-full py-6 first:justify-start">
 					<Link className="button-default w-fit" href={"/projects"}>
