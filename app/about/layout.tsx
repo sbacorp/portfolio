@@ -1,5 +1,5 @@
 "use client";
-import Dropdown from "@/components/dropdown";
+import Dropdown from "@/app/components/Dropdown";
 import { ReactNode } from "react";
 import { BiMailSend, BiPhoneCall } from "react-icons/bi";
 import Link from "next/link";

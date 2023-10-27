@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import { IProject } from "@/types";
-import { getProject } from "@/app/lib/getProject";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { projects } from "@/app/layout";
 type Props = {
 	params: { slug: string };
 };
@@ -10,16 +10,16 @@ type Props = {
 export const revalidate = 10;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+	
 	return {
 		title: "About " + params.slug || "About project",
 		description: `On this page you can read more about ${params.slug} project`,
 	};
 }
 
-export default async function page({ params: { slug } }: Props) {
-	const project: IProject | null = await getProject(slug);
-	console.log(project);
-	if (!project) {
+export default  function page({ params: { slug } }: Props) {
+	const project: IProject | undefined =  projects.find(p=>p.title===slug);
+	if (project == undefined) {
 		notFound();
 	}
 

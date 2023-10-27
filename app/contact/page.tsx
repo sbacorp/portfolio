@@ -1,10 +1,15 @@
-"use client";
+'use client'
 import { useForm } from "react-hook-form";
-import CodeHighlighter from "@/components/CodeHighlighter";
+import CodeHighlighter from "@/app/components/CodeHighlighter";
 import { formFields } from "./constants";
 import { useState } from "react";
 import { IInputs } from "@/types";
+import { Metadata } from "next";
 
+// export const metadata: Metadata = {
+// 	title: "Contact me",
+// 	description: "Write a message for Shankin Dev",
+// };
 export default function Contact() {
 	const [isSubmitted, setIsSubmitted] = useState(false);
 	const [submitMessage, setsubmitMessage] = useState("");
@@ -61,7 +66,7 @@ button.addEventListener('click', () => {
 	form.send(message);
 })`;
 	return (
-		<main className="flex my-auto justify-evenly">
+		<main className="flex my-auto justify-evenly w-full">
 			<div className="form px-5 w-fit h-full flex items-center justify-center flex-col">
 				{!isSubmitted ? (
 					<>
@@ -123,3 +128,4 @@ button.addEventListener('click', () => {
 		</main>
 	);
 }
+

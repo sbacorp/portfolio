@@ -1,7 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { HiMenu, HiOutlineX } from "react-icons/hi";
 import { motion } from "framer-motion";
 import { links } from "@/constants";
@@ -10,9 +10,6 @@ import { links } from "@/constants";
 
 function Header() {
 	const [active, setActive] = useState(false);
-	useEffect(() => {
-		console.log(active);
-	}, [active]);
 
 	const pathname = usePathname();
 	return (
@@ -32,13 +29,15 @@ function Header() {
 							<li
 								onClick={() => setActive(false)}
 								key={i}
-								className={`flex items-center px-4 border-solid  lg:border-l border-l-line lg:border-b border-b lg:h-full h-14 w-full lg:w-fit ${
+								className={` border-solid  lg:border border-b lg:h-full h-14 w-full lg:w-fit ${
 									isActive
-										? " border-b-4 border-solid border-accent1"
-										: " border-b-line"
+										? " lg:border-4 border-b-4 border-solid border-accent1"
+										: " border-b-line lg:border-line"
 								}`}
 							>
-								<Link href={link.href}>{link.text}</Link>
+								<Link className="flex items-center px-4 justify-center h-full" href={link.href}>
+									{link.text}
+								</Link>
 							</li>
 						);
 					})}

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import GameContainer from "@/components/gameContainer";
-import Typing from "@/components/Typing";
+import GameContainer from "@/app/components/GameContainer";
+import Typing from "@/app/components/Typing";
 
 export const metadata: Metadata = {
 	title: "Shankin Dev",

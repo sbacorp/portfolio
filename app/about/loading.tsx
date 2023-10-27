@@ -1,2 +1,2 @@
-import Loading from "@/components/loading";
+import Loading from "@/app/components/Loading";
 export default Loading;
