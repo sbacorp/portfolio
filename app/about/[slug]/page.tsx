@@ -24,7 +24,7 @@ export default function SkillsInfo({ params: { slug } }: Props) {
     </div>
   );
 }
-export const experience: Experience[] = [
+const experience: Experience[] = [
   {
     slug: "frontend",
     title: "Frontend",
