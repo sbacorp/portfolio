@@ -1,0 +1,31 @@
+.preloader {
+  height: 100svh;
+  width: 100svw;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  position: absolute;
+  top: 0;
+  z-index: 99;
+  overflow: hidden;
+  background-color: #141516;
+  svg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: calc(100% + 300px);
+    path {
+      fill: #141516;
+    }
+  }
+  p {
+    display: flex;
+    color: white;
+    font-size: 72px;
+    margin: 20px;
+    font-weight: 700;
+    align-items: center;
+    z-index: 1;
+    overflow: hidden;
+  }
+}

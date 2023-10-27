@@ -1,0 +1,43 @@
+.logo {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  svg {
+    transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+  .name {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-left: 5px;
+    transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+    p {
+      font-weight: 400;
+      position: relative;
+      transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+      &:nth-of-type(2) {
+        padding-left: 0.6em;
+      }
+      &:nth-of-type(3) {
+        position: absolute;
+        left: 120px;
+        padding-left: 0.3em;
+      }
+    }
+  }
+  &:hover {
+    .name {
+      padding-right: 30px;
+      .dev {
+        transform: translateX(-100%);
+      }
+      .bogdan {
+        transform: translateX(-58px);
+      }
+      .shankin {
+        transform: translateX(-65px);
+      }
+    }
+  }
+}

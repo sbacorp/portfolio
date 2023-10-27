@@ -2,223 +2,244 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  width: 100svw;
+  height: 100svh;
+}
+
 .scroll {
-	&::-webkit-scrollbar {
-		@apply w-2;
-	}
-	&::-webkit-scrollbar-track {
-		@apply bg-primary2;
-	}
-	&::-webkit-scrollbar-thumb {
-		@apply bg-grey;
-	}
+  &::-webkit-scrollbar {
+    @apply w-2;
+  }
+  &::-webkit-scrollbar-track {
+    @apply bg-primary2;
+  }
+  &::-webkit-scrollbar-thumb {
+    @apply bg-grey;
+  }
 }
 
 @mixin noselect {
-	-webkit-touch-callout: none; /* iOS Safari */
-	-webkit-user-select: none; /* Safari */
-	-khtml-user-select: none;
-	-moz-user-select: none; /* Old versions of Firefox */
-	-ms-user-select: none; /* Internet Explorer/Edge */
-	user-select: none; /* Non-prefixed version, currently
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none;
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Opera and Firefox */
 }
 div {
-	@include noselect;
+  @include noselect;
 }
 @mixin flex-row {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 @mixin button {
-	padding: 10px 14px;
-	gap: 10px;
-	border-radius: 0.5em;
-	transition: 300ms all ease;
+  padding: 10px 14px;
+  gap: 10px;
+  border-radius: 0.5em;
+  transition: 300ms all ease;
 }
 .button-primary {
-	@include flex-row;
-	@include button;
-	background: #fea55f;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	border-radius: 0.5em;
-	color: black;
-	&:hover {
-		background: #ffac6b;
-		box-shadow: none;
-	}
+  @include flex-row;
+  @include button;
+  background: #fea55f;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0.5em;
+  color: black;
+  &:hover {
+    background: #ffac6b;
+    box-shadow: none;
+  }
 }
 
 .button-default {
-	color: white;
-	@include flex-row;
-	@include button;
-	background: #1c2b3a;
-	&.loading {
-		background: linear-gradient(to right, #011627, #1c2b3a, #011627);
-		background-size: 200% 100%;
-		animation: loading 3s linear infinite;
-		&:hover {
-			background: linear-gradient(to right, #011627, #1c2b3a, #011627);
-			background-size: 200% 100%;
-			animation: loading 3s linear infinite;
-		}
-	}
-	&:hover {
-		background: #263b50;
-	}
+  color: white;
+  @include flex-row;
+  @include button;
+  background: #1c2b3a;
+  &.loading {
+    background: linear-gradient(to right, #011627, #1c2b3a, #011627);
+    background-size: 200% 100%;
+    animation: loading 3s linear infinite;
+    &:hover {
+      background: linear-gradient(to right, #011627, #1c2b3a, #011627);
+      background-size: 200% 100%;
+      animation: loading 3s linear infinite;
+    }
+  }
+  &:hover {
+    background: #263b50;
+  }
 }
 @keyframes loading {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 .button-ghost {
-	@include flex-row;
-	@include button;
-	background: transparent;
-	border: 1px solid #ffffff;
-	color: #fff;
-	&:hover {
-		border: 1px solid rgba(255, 255, 255, 0.7);
-	}
+  @include flex-row;
+  @include button;
+  background: transparent;
+  border: 1px solid #ffffff;
+  color: #fff;
+  &:hover {
+    border: 1px solid rgba(255, 255, 255, 0.7);
+  }
 }
 
 .nav {
-	width: 100%;
-	@media screen and (min-width: 1024px) {
-		& li:last-child {
-			margin: 0 0 0 auto;
-		}
-	}
+  width: 100%;
+  @media screen and (min-width: 1024px) {
+    & li:last-child {
+      margin: 0 0 0 auto;
+    }
+  }
 }
 .footer {
-	width: 100%;
-	& li:last-child {
-		margin: 0 0 0 auto;
-	}
+  width: 100%;
+  & li:last-child {
+    margin: 0 0 0 auto;
+  }
 }
 
 .glass {
-	background: linear-gradient(
-		150.26deg,
-		rgba(23, 85, 83, 0.7) 1.7%,
-		rgba(67, 217, 173, 0.091) 81.82%
-	);
-	border: 1px solid;
-	box-shadow: inset 0px 2px 0px rgba(255, 255, 255, 0.3);
-	backdrop-filter: blur(32px);
+  background: linear-gradient(
+    150.26deg,
+    rgba(23, 85, 83, 0.7) 1.7%,
+    rgba(67, 217, 173, 0.091) 81.82%
+  );
+  border: 1px solid;
+  box-shadow: inset 0px 2px 0px rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(32px);
 
-	border-radius: 8px;
+  border-radius: 8px;
 }
 .game-over {
-	background: rgba(1, 22, 39, 0.84);
-	box-shadow: inset 1px 5px 11px rgba(2, 18, 27, 0.71);
-	border-radius: 8px;
+  background: rgba(1, 22, 39, 0.84);
+  box-shadow: inset 1px 5px 11px rgba(2, 18, 27, 0.71);
+  border-radius: 8px;
 }
 .game {
-	box-shadow: inset 1px 5px 11px rgba(2, 18, 27, 0.71);
+  box-shadow: inset 1px 5px 11px rgba(2, 18, 27, 0.71);
 }
 .bg-blur__green {
-	filter: blur(87px);
-	transform: rotate(-94.3deg);
+  filter: blur(87px);
+  transform: rotate(-94.3deg);
 }
 .bg-blur__blue {
-	filter: blur(87px);
-	transform: rotate(13.51deg);
+  filter: blur(87px);
+  transform: rotate(13.51deg);
 }
 
 .inputForm {
-	background: #011221;
-	border-radius: 8px;
-	background: #011221;
-	border: 1px solid #1e2d3d;
-	border-radius: 8px;
-	padding: 5px 10px;
-	&:focus {
-		border: 1px solid #607b96;
-		box-shadow: 0px 0px 0px 2px rgba(96, 123, 150, 0.3);
-	}
+  background: #011221;
+  border-radius: 8px;
+  background: #011221;
+  border: 1px solid #1e2d3d;
+  border-radius: 8px;
+  padding: 5px 10px;
+  &:focus {
+    border: 1px solid #607b96;
+    box-shadow: 0px 0px 0px 2px rgba(96, 123, 150, 0.3);
+  }
 }
 
 svg:hover {
-	color: #c4c4c4;
-	transition: all 300ms ease;
+  color: #c4c4c4;
+  transition: all 300ms ease;
 }
 
 :root {
-	--hue: 223;
-	--bg: hsl(var(--hue), 10%, 90%);
-	--fg: hsl(var(--hue), 10%, 10%);
+  --hue: 223;
+  --bg: hsl(var(--hue), 10%, 90%);
+  --fg: hsl(var(--hue), 10%, 10%);
 }
 
 .pl {
-	display: block;
-	width: 6.25em;
-	height: 6.25em;
+  display: block;
+  width: 6.25em;
+  height: 6.25em;
 }
 .pl__ring,
 .pl__ball {
-	animation: ring 2s ease-out infinite;
+  animation: ring 2s ease-out infinite;
 }
 .pl__ball {
-	animation-name: ball;
+  animation-name: ball;
 }
 
 /* Dark theme  */
 @media (prefers-color-scheme: dark) {
-	:root {
-		--bg: hsl(var(--hue), 10%, 10%);
-		--fg: hsl(var(--hue), 10%, 90%);
-	}
+  :root {
+    --bg: hsl(var(--hue), 10%, 10%);
+    --fg: hsl(var(--hue), 10%, 90%);
+  }
 }
 
 /* Animation */
 @keyframes ring {
-	from {
-		stroke-dasharray: 0 257 0 0 1 0 0 258;
-	}
-	25% {
-		stroke-dasharray: 0 0 0 0 257 0 258 0;
-	}
-	50%,
-	to {
-		stroke-dasharray: 0 0 0 0 0 515 0 0;
-	}
+  from {
+    stroke-dasharray: 0 257 0 0 1 0 0 258;
+  }
+  25% {
+    stroke-dasharray: 0 0 0 0 257 0 258 0;
+  }
+  50%,
+  to {
+    stroke-dasharray: 0 0 0 0 0 515 0 0;
+  }
 }
 @keyframes ball {
-	from,
-	50% {
-		animation-timing-function: ease-in;
-		stroke-dashoffset: 1;
-	}
-	64% {
-		animation-timing-function: ease-in;
-		stroke-dashoffset: -109;
-	}
-	78% {
-		animation-timing-function: ease-in;
-		stroke-dashoffset: -145;
-	}
-	92% {
-		animation-timing-function: ease-in;
-		stroke-dashoffset: -157;
-	}
-	57%,
-	71%,
-	85%,
-	99%,
-	to {
-		animation-timing-function: ease-out;
-		stroke-dashoffset: -163;
-	}
+  from,
+  50% {
+    animation-timing-function: ease-in;
+    stroke-dashoffset: 1;
+  }
+  64% {
+    animation-timing-function: ease-in;
+    stroke-dashoffset: -109;
+  }
+  78% {
+    animation-timing-function: ease-in;
+    stroke-dashoffset: -145;
+  }
+  92% {
+    animation-timing-function: ease-in;
+    stroke-dashoffset: -157;
+  }
+  57%,
+  71%,
+  85%,
+  99%,
+  to {
+    animation-timing-function: ease-out;
+    stroke-dashoffset: -163;
+  }
+}
+
+.typing-text {
+  white-space: pre-wrap;
+  overflow: hidden;
+
+  animation: typing 2s steps(40, end);
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
