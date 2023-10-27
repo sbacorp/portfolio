@@ -6,21 +6,25 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const t: Experience | undefined = data.find((el) => el.slug === params.slug);
+  const t: Experience | undefined = experience.find(
+    (el) => el.slug === params.slug
+  );
   return {
     title: t?.title || "Info",
   };
 }
 export const revalidate = 60;
 export default function SkillsInfo({ params: { slug } }: Props) {
-  const skills: Experience | undefined = data.find((el) => el.slug === slug);
+  const skills: Experience | undefined = experience.find(
+    (el) => el.slug === slug
+  );
   return (
     <div className="h-full w-full px-6 text-code md:text-body pt-10 md:pt-60">
       <TypingText text={skills!.description} />
     </div>
   );
 }
-export const data: Experience[] = [
+export const experience: Experience[] = [
   {
     slug: "frontend",
     title: "Frontend",
